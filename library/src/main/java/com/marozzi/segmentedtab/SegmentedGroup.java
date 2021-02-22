@@ -121,4 +121,17 @@ public class SegmentedGroup extends LinearLayout implements View.OnClickListener
         if (onSegmentedGroupListener != null)
             onSegmentedGroupListener.onSegmentedTabSelected(currentTab, currentTab.getId());
     }
+
+    public void selected(int checkedId){
+        currentTab.setSelected(false);
+
+        for(SegmentedTab tab: tabs){
+            int id = tab.getId();
+            if( id == checkedId ){
+                currentTab = tab;
+                currentTab.setSelected(true);
+                continue;
+            }
+        }
+    }
 }
